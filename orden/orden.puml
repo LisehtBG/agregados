@@ -1,0 +1,62 @@
+@startuml
+
+class Order{
+	id: OrderId
+	date: DateTime 
+	clientId: ClientId
+	address: Address
+	products: OrderProducts[]
+    user: UserId
+    state: State
+    totalAmount: Money
+    void clientExist()
+    void productExist()
+}
+
+class OrderProducts{
+    id: number
+    productId: ProductId
+    price: Money 
+    discount: Money
+    quantity: Quantity
+
+}
+
+class Quantity{
+    value: number
+    void isValid()
+}
+
+class Money {
+    value: Money 
+    currency: CurrencyType
+}
+
+class UserId{
+    value: number
+}
+
+class OrderId{
+	value number
+}
+
+class State{
+    value: number
+}
+
+class DateTime{
+	value string
+    void isValid()
+}
+OrderProducts "1" --> "1" Money
+OrderProducts "1" --> "1" Quantity
+Order "1" --> "1" DateTime
+Order "1" --> "1" OrderId
+Order "1" *-- "0..*" OrderProducts
+Order "1" --> "1" State
+Order "1" --> "1" Money
+Order "1" --> "1" UserId
+
+
+
+@enduml

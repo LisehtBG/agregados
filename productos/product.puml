@@ -1,0 +1,65 @@
+@startuml
+
+class Products {
+	id: ProductId
+    name: NameProduct
+    stock: StockProduct
+    unit: UnitProduct
+    registerDate: DateTime
+    dueDate: Datetime 
+    laboratory: Laboratory
+    tradename: TradeNAme
+    presentation: Presentation
+
+}
+
+class ProductId{
+    value number
+}
+
+
+class NameProduct{
+    value: string 
+    void isValid()
+}
+
+class StockProduct{
+    value: number
+    void isStock()
+}
+
+class UnitProduct{
+    value: string
+    void isValid()
+}
+
+class DateTime{
+    value: string 
+}
+
+class Laboratory{
+    value: string 
+    void isValid()
+}
+
+
+class TradeName{
+    value: string 
+}
+
+class Presentation{
+    value: string
+    void isValid()
+}
+
+
+Products "1" --> "1..*" Presentation
+Products "1" --> "1" ProductId
+Products "1" --> "1" StockProduct
+Products "1" --> "1" TradeName 
+Products "1" --> "1" Laboratory
+Products "1" --> "1" NameProduct
+Products "1" --> "1" UnitProduct
+Products "1" --> "1" DateTime
+
+@enduml

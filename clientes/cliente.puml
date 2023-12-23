@@ -1,0 +1,78 @@
+@startuml
+
+class UserName {
+	value: number
+}
+
+class FullName{
+	value: string
+	void isValid()
+
+}
+
+class ClientId {
+	value: number
+}
+
+class Phone {
+	value: number
+
+}
+class  Client {
+	id: ClientId
+	fullname: FullName
+	user: UserName
+	phone: Phone
+	email: Email
+	address: Address
+	documentType: String
+	numberDocument: NumberDocument
+}
+
+class DocumentNumber{
+	value: number
+	void isValid()
+}
+
+class Email {
+	value: string 
+	void isValid()
+
+}
+
+class Address{
+	value: string 
+	postalCode: string 
+	ubigeo: UbigeoId
+	void isValid()
+}
+
+class Ubigeo{
+	id: UbigeoId
+	departure: string
+	province: string
+	distric: string
+	void isValid()
+}
+
+class UbigeoId{
+	value: number
+	void isValid()
+}
+
+
+Client "1"--> "1" UserName
+Client "1"--> "1" ClientId
+Client "1"--> "1" Phone
+Client "1"--> "1" Email
+Client "1"--> "1" Address
+Client "1"--> "1" FullName
+Client "1"--> "1" DocumentNumber
+
+Ubigeo "1"-->"1" UbigeoId
+
+
+
+
+
+@enduml
